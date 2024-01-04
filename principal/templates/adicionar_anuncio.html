@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+
+{% block 'menu' %}
+{% include 'parciais/_menu.html' %}
+{% endblock %}
+
+
+{% block 'conteudo' %}
+<br>
+<h3>Dados imóvel:</h3>
+
+{% include 'parciais/_message.html' %}
+
+<br>
+<form action="{% url 'adicionar_anuncio' %}" method="POST" class="col-md-5">{% csrf_token %} 
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Categoria:</label>
+        <select class="form-control" name='categoria' id="exampleFormControlSelect1">
+        {% for categoria in categorias %}
+          <option>{{ categoria.nome_categoria }}</option>
+        {% endfor %}
+        </select>
+      </div>
+      <br>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Valor aluguel:</label>
+      <input type="text" class="form-control" name='valor_aluguel' id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Estado:</label>
+        <input type="text" class="form-control" name='estado' id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Cidade:</label>
+        <input type="text" class="form-control" name='cidade' id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Rua:</label>
+        <input type="text" class="form-control" name='rua' id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Numero:</label>
+        <input type="text" class="form-control" name='numero' id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Quantidade banheiro:</label>
+        <input type="text" class="form-control" name='quantidade_banheiro' id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Quantidade quartos:</label>
+        <input type="text" class="form-control" name='quantidade_quartos' id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Area:</label>
+        <input type="text" class="form-control" name='area' id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Andares:</label>
+        <input type="text" class="form-control" name='andares' id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Garagens:</label>
+        <input type="text" class="form-control" name='garagens' id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Imagem:</label>
+        <input type="file" class="form-control" name='imagem' id="exampleInputEmail1">
+    </div>
+
+    <br>
+    <h3>Dados pessoais:</h3>
+    <br>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Telefone:</label>
+        <input type="text" class="form-control" name='telefone_anunciante' id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email:</label>
+        <input type="email" class="form-control" name='email_anunciante' id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-dark">Enviar</button>
+</form>
+
+{% endblock %}

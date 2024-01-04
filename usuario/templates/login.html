@@ -1,0 +1,32 @@
+{% extends 'base_usuario.html' %}
+
+
+{% block 'conteudo' %}
+
+<br>
+<br>
+<h3>Login:</h3>
+<br>
+
+
+<form action="{% url 'login' %}" method="POST" class="col-md-5">{% csrf_token %}
+  {% include 'parciais/_message.html' %}
+
+  <div class="form-group">
+    <label >Nome</label>
+    <input type="text" class="form-control" name="nome" aria-describedby="emailHelp" >
+  </div>
+  <br>
+  <div class="form-group">
+    <label>Senha</label>
+    <input type="password" class="form-control" name="senha" id="exampleInputPassword1" aria-describedby="emailHelp">
+  </div>
+
+  <a href="{% url 'cadastro' %}"><small>cadastrar-se</small></a>
+
+  <br>
+  <br>
+  <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block 'menu' %}
+{% include 'parciais/_menu.html' %}
+{% endblock %}
+
+
+{% block 'conteudo' %}
+
+<div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <span class="breadcrumb"><a href="#">Home</a> / anuncios</span>
+          <h3>Anuncios</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section properties">
+    <div class="container">
+      <ul class="properties-filter">
+        <li>
+          <a class="is_active" href="#!">Todos</a>
+        </li>
+        <li>
+          <a href="">Casa</a>
+        </li>
+        <li>
+          <a href="" >Apartamento</a>
+        </li>
+      </ul>
+    
+
+      {% for anuncio in anuncios %}
+      <div class="row properties-box">
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv">
+          <div class="item">
+            <a href="property-details.html"><img src="{{ anuncio.img.urls }}" alt=""></a>
+            <span class="category">{{ anuncio.categoria_anuncio }}</span>
+            <h6>R${{ anuncio.valor }}</h6>
+            <h4><a href="property-details.html">{{ anuncio.rua }}, {{ anuncio.cidade }}, {{ anuncio.estado }}</a></h4>
+            <ul>
+              <li>Banheiro(s): <span>{{ anuncio.quantidade_banheiro }}</span></li>
+              <li>Quarto(s): <span>{{ anuncio.quantidade_quartos }}</span></li>
+              <li>Area: <span>{{ anuncio.area_terreno }}</span></li>
+              <li>Andares: <span>{{ anuncio.andares }}</span></li>
+              <li>garagem(s): <span>{{ anuncio.garagens }}</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="{% url 'detalhes_anuncio' anuncio.id %}">Ver mais</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li><a class="is_active" href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

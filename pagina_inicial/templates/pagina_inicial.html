@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block 'banner' %}
+{% include 'parciais/_banner.html' %}
+{% endblock %}
+
+{% block 'menu' %}
+
+                    <ul class="nav">
+                      <li><a href="{% url 'cadastro' %}" class="active">Cadastre-se</a></li>
+                      <li><a href="{% url 'login' %}">Logar</a></li>
+                      <li><a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a></li>
+                    </ul>
+
+{% endblock %}
+
+{% block 'conteudo' %}
+
+
+{% endblock %}
